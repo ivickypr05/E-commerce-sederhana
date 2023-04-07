@@ -40,7 +40,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="/">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -55,13 +55,20 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="layout-static.html">Product</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Category</a>
+                                <a class="nav-link" href="{{url('/category')}}">Category</a>
                             </nav>
                         </div>
                     </div>
                 </div>
             </nav>
         </div>
+        <div id="layoutSidenav_content">
+        <main >
+            <div class="container-fluid">
+
+                @yield('content')
+            </div>
+          </main>
         <div id="layoutSidenav_content">
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
