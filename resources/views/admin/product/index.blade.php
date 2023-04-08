@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'ReStyle Category | Page')
+@section('title', 'ReStyle Product | Page')
 @section('content')
         <div class="row">
                 <div class="card">
@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <nav>
                             <div class='justify-content-end'>
-                                <a class="btn btn-success btn-md" href="/admin/add"><i class="fa fa-plus"></i> Add new
+                                <a class="btn btn-success btn-md" href="/product/add"><i class="fa fa-plus"></i> Add new
                                     Data</a>
                             </div>
                         </nav>

@@ -25,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view ('/admin/product/add',compact('categories'));
     }
 
     /**
@@ -36,7 +37,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|min:2|max:50',
+            'description' => 'required|string|min:5|max:255',
+            'price' => 'required|integer',
+            'photo' => 'required|mimes:jpeg,jpg,png,gif',
+            'category_id' => 'required|integer|exists:categories,id',
+        ]);
+        $photo = $request->file('photo')->store('product-photo','public');
+        $validatedData['photo'] = $photo;
+
+        Product::create($validatedData);
+        return redirect('/product')->with('toast_success', 'Product Created Successfully!');
     }
 
     /**

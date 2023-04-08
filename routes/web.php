@@ -23,8 +23,20 @@ use App\Http\Controllers\TransactionController;
 // Route::get('/', function () {
 //     return view('dashboard');
 // });
+
+// Route Dashboard
 Route::get('/', [DashboardController::class, 'index'])->name('index');
+
+// Route Category
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
+
+// Route Product
 Route::get('/product', [ProductController::class, 'index'])->name('product');
+Route::get('/product/add', [ProductController::class, 'create']);
+Route::post('/product',[ProductController::class, 'store']);
+
+// Route Cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+// Route Transaction
 Route::get('/transaction', [TransactionController::class, 'index'])->name('transactions');
