@@ -1,8 +1,13 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TesController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +20,11 @@ use App\Http\Controllers\TesController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-Route::get('/category', [CategoryController::class, 'index']);
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+Route::get('/', [DashboardController::class, 'index'])->name('index');
+Route::get('/category', [CategoryController::class, 'index'])->name('category');
+Route::get('/product', [ProductController::class, 'index'])->name('product');
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::get('/transaction', [TransactionController::class, 'index'])->name('transactions');
