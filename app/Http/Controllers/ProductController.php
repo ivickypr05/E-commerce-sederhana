@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -70,7 +71,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['categories'] = Category::all();
+        $data['product'] = Product::find($id);
+        return view('admin/product/edit', $data);
     }
 
     /**
@@ -82,7 +85,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|min:2|max:50',
+            'description' => 'required|string|min:5|max:255',
+            'price' => 'required|integer',
+            'photo' => 'mimes:jpg,png,jpeg,gif',
+            'category_id' => 'required|integer|exists:categories,id',
+        ]);
+
+        $product = Product::find($id);
+        if ($request->file('photo')) {
+            $photo = $request->file('photo')->store('product-photo','public' );
+            File::delete('storage/' .  $product->photo );
+            $validatedData['photo'] = $photo;
+        }
+        $product->update($validatedData);
+
+        return redirect('/product')->with('toast_success', 'Product Updated Successfully!');
     }
 
     /**
@@ -91,8 +110,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        File::delete('storage/' .  $product->photo );
+        $product->delete();
+        return redirect('/product')->with('toast_success', 'Data successfully deleted');
     }
 }

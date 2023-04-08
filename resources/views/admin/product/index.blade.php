@@ -60,12 +60,12 @@
                                         <td><img src="{{ url('storage/' . $item->photo) }}" width="70px"> </td>
                                         <td>{{ $item->category->name }}</td>
                                         <td>
-
-                                            <a href="/admin/{{ $item->id }}/edit"
+                                            <center>
+                                            <a href="/product/{{ $item->id }}/edit"
                                                 class="btn btn-xs btn-warning">Edit</a>
-                                            <a href="/admin/{{ $item->id }}/delete" class="btn btn-xs btn-danger"
+                                            <a href="/product/{{ $item->id }}/delete" class="btn btn-xs btn-danger"
                                                 onclick="return confirm('Are u Sure?');">Delete</a>
-
+                                            </center>
                                         </td>
                                         </td>
                                     </tr>
