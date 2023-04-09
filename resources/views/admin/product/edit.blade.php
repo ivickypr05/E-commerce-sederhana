@@ -4,7 +4,7 @@
     <div class="container">
 
         <a class="btn btn-dark mt-2" href="{{ Route('product') }}">
-            < Back </a>
+            <i class="fa fa-chevron-circle-left"></i> </a>
                 <br>
                 <p>
                 <h4>Welcome to the Edit Category Page</h4>

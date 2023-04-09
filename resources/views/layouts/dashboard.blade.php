@@ -11,12 +11,33 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"> 
+    
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">ReStyle Fourteen</a>
+        <a class="navbar-brand ps-3" href="">ReStyle Fourteen</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
@@ -41,8 +62,12 @@
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
                         <a class="nav-link" href="/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             Dashboard
+                        </a>
+                        <a class="nav-link" href="/aboutus">
+                            <div class="sb-nav-link-icon"><i class="fas fa-circle-info"></i></i></div>
+                            About us
                         </a>
                         <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -54,8 +79,9 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{url('/product')}}">Product</a>
-                                <a class="nav-link" href="{{url('/category')}}">Category</a>
+                                <a class="nav-link" href="{{url('/product')}}"><i class="fas fa-shirt"></i>‎　Product</a>
+                                <a class="nav-link" href="{{url('/category')}}"><i class="fas fa-list-alt"></i>‎　Category</a>
+                                <a class="nav-link" href="{{url('/transactionlist')}}"><i class="fas fa-list-check"></i>‎　Transaction List</a>
                             </nav>
                         </div>
                     </div>
@@ -65,15 +91,14 @@
         <div id="layoutSidenav_content">
         <main >
             <div class="container-fluid">
-
                 @yield('content')
             </div>
           </main>
-        <div id="layoutSidenav_content">
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
+        <div class="container">
+            <footer class="py-2 bg-light mt-auto">
+                <div class="container-fluid ">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; ReStyle Fourteen</div>
+                        <div class="text-center">Copyright &copy; ReStyle Fourteen</div>
                     </div>
                 </div>
             </footer>
@@ -88,5 +113,4 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/datatables-simple-demo.js') }}"></script>
 </body>
-
 </html>

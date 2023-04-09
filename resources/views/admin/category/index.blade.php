@@ -13,8 +13,8 @@
                 <div class="card-body">
                     <nav>
                         <div class='justify-content-end'>
-                            <a class="btn btn-success btn-md" href="/admin/addcategory"><i class="fa fa-plus"></i> Add
-                                new Data</a>
+                            <a class="btn btn-success btn-md" href="/category/add"><i class="fa fa-plus"></i> Add
+                                New Data</a>
                         </div>
                     </nav>
 
@@ -47,11 +47,10 @@
                                     <td>{{ $item->name }}</td>
                                     <td>
                                         <center>
-                                            <a href="/admin/{{ $item->id }}/editcategory"
-                                                class="btn btn-xs btn-warning">Edit</a>
-                                            <a href="/admin/{{ $item->id }}/deletecategory"
-                                                class="btn btn-xs btn-danger"
-                                                onclick="return confirm('Are u Sure?');">Delete</a>
+                                            <a href="/category/{{ $item->id }}/edit"
+                                                class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
+                                            <a href="/category/{{ $item->id }}/delete" class="btn btn-xs btn-danger"
+                                                onclick="return confirm('Are u Sure?');"><i class="fas fa-trash"></i></a>
                                         </center>
                                     </td>
                                     </td>
