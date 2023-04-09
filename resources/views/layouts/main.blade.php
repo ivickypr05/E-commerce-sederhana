@@ -15,8 +15,6 @@
 <body>
     {{-- Navbar --}}
     @include('partials.navbar')
-
-
 </body>
 
 </html>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\AboutUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +27,18 @@ use App\Http\Controllers\TransactionController;
 
 // Route Dashboard
 Route::get('/', [DashboardController::class, 'index'])->name('index');
+Route::get('/aboutus', [AboutUsController::class, 'index'])->name('index');
 
 // Route Category
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
+Route::get('/category/add', [CategoryController::class, 'create']);
+Route::post('/category',[CategoryController::class, 'store']);
+Route::get('/category/{id}/edit',[CategoryController::class, 'edit']);
+Route::put('/category/{id}',[CategoryController::class,'update']);
+Route::get('/category/{id}/delete', [CategoryController::class,'destroy']);
 
-// Route Product
+
+// Route Product 
 Route::get('/product', [ProductController::class, 'index'])->name('product');
 Route::get('/product/add', [ProductController::class, 'create']);
 Route::post('/product',[ProductController::class, 'store']);
@@ -42,4 +50,4 @@ Route::get('/product/{id}/delete', [ProductController::class,'destroy']);
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 // Route Transaction
-Route::get('/transaction', [TransactionController::class, 'index'])->name('transactions');
+Route::get('/transactionlist', [TransactionController::class, 'index'])->name('transactions');
