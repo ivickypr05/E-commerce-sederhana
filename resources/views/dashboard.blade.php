@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'ReStyle Category | Page')
-@section('content')
-coba
+@section('title', 'Dashboard | Page')
+@section('content') 
+
 @endsection
