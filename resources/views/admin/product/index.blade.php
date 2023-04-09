@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <nav>
                             <div class='justify-content-end'>
-                                <a class="btn btn-success btn-md" href="/product/add"><i class="fa fa-plus"></i> Add new
+                                <a class="btn btn-success btn-md" href="/product/add"><i class="fa fa-plus"></i> Add New
                                     Data</a>
                             </div>
                         </nav>
@@ -62,9 +62,9 @@
                                         <td>
                                             <center>
                                             <a href="/product/{{ $item->id }}/edit"
-                                                class="btn btn-xs btn-warning">Edit</a>
+                                                class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
                                             <a href="/product/{{ $item->id }}/delete" class="btn btn-xs btn-danger"
-                                                onclick="return confirm('Are u Sure?');">Delete</a>
+                                                onclick="return confirm('Are u Sure?');"><i class="fas fa-trash"></i></a>
                                             </center>
                                         </td>
                                         </td>

@@ -2,7 +2,7 @@
 @section('title', 'ReStyle Create Product | Page')
 @section('content')
     <a class="btn btn-dark mt-2" href="{{ Route('product') }}">
-        < Back </a>
+        <i class="fa fa-chevron-circle-left"></i> Back</a>
             <br>
             <p>
             <h4>Welcome to the Add Item Data Page</h4>
