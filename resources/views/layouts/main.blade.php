@@ -14,7 +14,6 @@
     {{-- Font Awesome --}}
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"
         type="text/css" />
-
     <title>@yield('title')</title>
 </head>
 

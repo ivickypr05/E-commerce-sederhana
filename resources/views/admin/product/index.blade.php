@@ -57,7 +57,7 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->description }}</td>
                                 <td>Rp.{{ number_format($item->price) }},-</td>
-                                <td><img src="{{ url('storage/' . $item->photo) }}" width="70px"> </td>
+                                <td><img src="{{ asset('storage/' . $item->photo) }}" width="70px"> </td>
                                 <td>{{ $item->category->name }}</td>
                                 <td>
                                     <center>

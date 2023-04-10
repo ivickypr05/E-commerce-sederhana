@@ -7,7 +7,7 @@
             {{-- col --}}
             <div class="mt-2 mb-5 col-md-3 col-6">
                 {{-- card --}}
-                <div class="card">
+                <div class="card card-deck">
                     <img src="{{ asset('storage/' . $items->photo) }}" class="card-img-top" alt="...">
                     <div class="card-body">
 
@@ -34,11 +34,7 @@
 
                                 <div class="row mt-2">
                                     <button type="submit" class="btn btn-primary ms-auto" role="button"><i
-                                            class="fa-solid fa-cart-plus"></i></button>
-                                </div>
-                                <div class="row mt-2">
-                                    <button type="submit" class="btn btn-warning ms-auto" role="button"><i>Check
-                                            Out</i></button>
+                                            class="fa-solid fa-cart-plus"></i> Add to Cart</button>
                                 </div>
                             </div>
                         </form>
