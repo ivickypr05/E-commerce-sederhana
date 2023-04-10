@@ -6,11 +6,18 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
+    // User
+    public function transaction()
+    {
+        return view('/user/transaction');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    
+    //  admin
     public function index()
     {
         return view('/admin/transaction/transactionlist');

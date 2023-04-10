@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -8,6 +9,12 @@ use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
+
+    public function home()
+    {
+        $products = Product::with('category')->get();
+        return view('/user/home', compact('products'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +23,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('category')->get();
-        return view ('/admin/product/index',compact('products'));
+        return view('/admin/product/index', compact('products'));
     }
 
     /**
@@ -27,7 +34,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view ('/admin/product/add',compact('categories'));
+        return view('/admin/product/add', compact('categories'));
     }
 
     /**
@@ -45,7 +52,8 @@ class ProductController extends Controller
             'photo' => 'required|mimes:jpeg,jpg,png,gif',
             'category_id' => 'required|integer|exists:categories,id',
         ]);
-        $photo = $request->file('photo')->store('product-photo','public');
+        $photo = $request->file('photo')->store('product-photo', 'public');
+        // $photo = $request->file('photo')->storeAs('product-photo', 'public');
         $validatedData['photo'] = $photo;
 
         Product::create($validatedData);
@@ -95,8 +103,8 @@ class ProductController extends Controller
 
         $product = Product::find($id);
         if ($request->file('photo')) {
-            $photo = $request->file('photo')->store('product-photo','public' );
-            File::delete('storage/' .  $product->photo );
+            $photo = $request->file('photo')->store('product-photo', 'public');
+            File::delete('storage/' .  $product->photo);
             $validatedData['photo'] = $photo;
         }
         $product->update($validatedData);
@@ -113,7 +121,7 @@ class ProductController extends Controller
     public function destroy(Product $product, $id)
     {
         $product = Product::findOrFail($id);
-        File::delete('storage/' .  $product->photo );
+        File::delete('storage/' .  $product->photo);
         $product->delete();
         return redirect('/product')->with('toast_success', 'Data successfully deleted');
     }

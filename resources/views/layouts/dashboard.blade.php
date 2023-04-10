@@ -11,27 +11,29 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"> 
-    
-        <!-- Icon Font Stylesheet -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    
-        <!-- Libraries Stylesheet -->
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-    
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body class="sb-nav-fixed">
@@ -48,10 +50,12 @@
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i> Admin</a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
-                </ul>
+                    <li><a class="dropdown-item" href="/">Home</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
             </li>
         </ul>
     </nav>
@@ -61,7 +65,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="/">
+                        <a class="nav-link" href="/dashboard">
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             Dashboard
                         </a>
@@ -79,9 +83,12 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{url('/product')}}"><i class="fas fa-shirt"></i>‎　Product</a>
-                                <a class="nav-link" href="{{url('/category')}}"><i class="fas fa-list-alt"></i>‎　Category</a>
-                                <a class="nav-link" href="{{url('/transactionlist')}}"><i class="fas fa-list-check"></i>‎　Transaction List</a>
+                                <a class="nav-link" href="{{ url('/product') }}"><i
+                                        class="fas fa-shirt"></i>‎　Product</a>
+                                <a class="nav-link" href="{{ url('/category') }}"><i
+                                        class="fas fa-list-alt"></i>‎　Category</a>
+                                <a class="nav-link" href="{{ url('/transactionlist') }}"><i
+                                        class="fas fa-list-check"></i>‎　Transaction List</a>
                             </nav>
                         </div>
                     </div>
@@ -89,28 +96,29 @@
             </nav>
         </div>
         <div id="layoutSidenav_content">
-        <main >
-            <div class="container-fluid">
-                @yield('content')
-            </div>
-          </main>
-        <div class="container">
-            <footer class="py-2 bg-light mt-auto">
-                <div class="container-fluid ">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-center">Copyright &copy; ReStyle Fourteen</div>
-                    </div>
+            <main>
+                <div class="container-fluid">
+                    @yield('content')
                 </div>
-            </footer>
+            </main>
+            <div class="container">
+                <footer class="py-2 bg-light mt-auto">
+                    <div class="container-fluid ">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-center">Copyright &copy; ReStyle Fourteen 2023</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-    </script>
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="{{ asset('assets/js/datatables-simple-demo.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+        </script>
+        <script src="{{ asset('assets/js/scripts.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
+        <script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="{{ asset('assets/js/datatables-simple-demo.js') }}"></script>
 </body>
+
 </html>
