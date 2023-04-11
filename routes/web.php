@@ -34,40 +34,41 @@ Route::get('logout', [AuthController::class, 'logout']);
 Route::get('register', [AuthController::class, 'register']);
 Route::post('auth/register', [AuthController::class, 'doregister']);
 
-
-// <<<<<<<<<<<<<<<<<<<<<<<<<<< USER >>>>>>>>>>>>>>>>>>>>>>>>>>>>
-Route::get('/', [ProductController::class, 'home'])->name('home');
-Route::get('/transaction', [TransactionController::class, 'transaction'])->name('transaction');
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
-
-
-// <<<<<<<<<<<<<<<<<<<<<<<<<<< ADMIN RESTYLE FOURTEEN >>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// Route Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/aboutus', [AboutUsController::class, 'index']);
-
-// Route Category
-Route::get('/category', [CategoryController::class, 'index'])->name('category');
-//Add Category
-Route::get('/category/add', [CategoryController::class, 'create']);
-Route::post('/category', [CategoryController::class, 'store']);
-//Edit Category
-Route::get('/category/{id}/edit', [CategoryController::class, 'edit']);
-Route::put('/category/{id}', [CategoryController::class, 'update']);
-//Delete Category
-Route::get('/category/{id}/delete', [CategoryController::class, 'destroy']);
+Route::middleware(['auth'])->group(function () {
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<< USER >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    Route::get('/', [ProductController::class, 'home'])->name('home');
+    Route::get('/transaction', [TransactionController::class, 'transaction'])->name('transaction');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
 
 
-// Route Product 
-Route::get('/product', [ProductController::class, 'index'])->name('product');
-// Add Product
-Route::get('/product/add', [ProductController::class, 'create']);
-Route::post('/product', [ProductController::class, 'store']);
-// Edit Product
-Route::get('/product/{id}/edit', [ProductController::class, 'edit']);
-Route::put('/product/{id}', [ProductController::class, 'update']);
-//Delete Product
-Route::get('/product/{id}/delete', [ProductController::class, 'destroy']);
+    // <<<<<<<<<<<<<<<<<<<<<<<<<<< ADMIN RESTYLE FOURTEEN >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // Route Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/aboutus', [AboutUsController::class, 'index']);
 
-// Route Transaction
-Route::get('/transactionlist', [TransactionController::class, 'index']);
+    // Route Category
+    Route::get('/category', [CategoryController::class, 'index'])->name('category');
+    //Add Category
+    Route::get('/category/add', [CategoryController::class, 'create']);
+    Route::post('/category', [CategoryController::class, 'store']);
+    //Edit Category
+    Route::get('/category/{id}/edit', [CategoryController::class, 'edit']);
+    Route::put('/category/{id}', [CategoryController::class, 'update']);
+    //Delete Category
+    Route::get('/category/{id}/delete', [CategoryController::class, 'destroy']);
+
+
+    // Route Product 
+    Route::get('/product', [ProductController::class, 'index'])->name('product');
+    // Add Product
+    Route::get('/product/add', [ProductController::class, 'create']);
+    Route::post('/product', [ProductController::class, 'store']);
+    // Edit Product
+    Route::get('/product/{id}/edit', [ProductController::class, 'edit']);
+    Route::put('/product/{id}', [ProductController::class, 'update']);
+    //Delete Product
+    Route::get('/product/{id}/delete', [ProductController::class, 'destroy']);
+
+    // Route Transaction
+    Route::get('/transactionlist', [TransactionController::class, 'index']);
+});
