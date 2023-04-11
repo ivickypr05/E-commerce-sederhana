@@ -28,15 +28,11 @@
                 <li class=" navbar-nav nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button"
                         data-bs-toggle="dropdown">
-                        Name User
-                        {{-- {{ Auth::user()->name }} --}}
+                        {{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item " href="/dashboard">Dashboard</a></li>
-                    </ul>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item " href="#!">Logout</a></li>
-                    </ul>
+                        <li><a class="dropdown-item " href="/logout">Logout</a></li>
                 </li>
             </div>
         </div>

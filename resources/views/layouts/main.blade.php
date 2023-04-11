@@ -19,8 +19,10 @@
 
 <body>
     {{-- Navbar --}}
-    @include('partials.navbar')
 
+    @auth
+        @include('partials.navbar')
+    @endauth
 
     <div class="container mt-4">
         @yield('content')
