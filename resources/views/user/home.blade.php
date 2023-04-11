@@ -23,10 +23,10 @@
 
                         <h5 class="d-flex text-danger"><span class="ms-auto">Rp {{ number_format($items->price) }}</span>
                         </h5>
-                        <form action="" method="post">
+                        <form action="/tocart" method="post">
                             @csrf
                             <div class="row mt-3 justify-content-center">
-                                <input type="hidden" name="products_id" value="{{ $items->id }}">
+                                <input type="hidden" name="product_id" value="{{ $items->id }}">
 
                                 <div class="col-6">
                                     <input type="number" class="form-control" required name="qty">

@@ -29,14 +29,14 @@ class ProductSeeder extends Seeder
         // ]);
         $product = [
             [
-                'name' => 'Piama Girl',
+                'name' => 'Piyama Girl',
                 'description' => 'Is clothing that is used for sleeping, made from soft and comfortable for women',
                 'price' => '300000',
                 'photo' => 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//99/MTA-8708561/no_brand_piyama_3in1_satin_polos_eropa_baju_tidur_piama_dewasa_cewek_pajamas_sleepwear_full03_evjc260t.jpg',
                 'category_id' => 2,
             ],
             [
-                'name' => 'Piayama Boy',
+                'name' => 'Piyama Boy',
                 'description' => 'Is clothing used for sleeping, made from soft and comfortable for men',
                 'price' => '50000',
                 'photo' => 'https://images.tokopedia.net/img/cache/500-square/VqbcmM/2022/7/28/298d77c3-ead7-4162-801e-f192373590d9.jpg',
