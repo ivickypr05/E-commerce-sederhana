@@ -14,7 +14,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        $carts = Cart::with('product')->get();
+        $carts = Cart::with('product')->where('status', null)->get();
         return view('/user/cart', compact('carts'));
     }
     /**
@@ -43,11 +43,14 @@ class CartController extends Controller
         );
         $cek = Cart::where('product_id', $request->product_id)->first();
         // dd($cek);
-        if ($cek) {
-            Cart::where('id', $cek->id)->update(['qty' => $cek->qty + $request->qty]);
-        } else {
-            Cart::create($validated);
-        }
+        Cart::create($validated);
+        // if ($cek) {
+
+        // } elseif ($cek->status == '') {
+        //     Cart::where('id', $cek->id)->update(['qty' => $cek->qty + $request->qty]);
+        // } else {
+        //     Cart::create($validated);
+        // }
         return redirect('/cart')->with('success', 'successfully added to cart');
     }
 
