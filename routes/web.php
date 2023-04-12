@@ -44,8 +44,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/cart/{id}/delete', [CartController::class, 'destroy']);
 
+    // Route::post('/cart/{id}', [CartController::class, 'edit']);
     Route::put('/cart/{id}/edit', [CartController::class, 'update']);
-    Route::post('/cart/{id}', [CartController::class, 'update']);
+
     // <<<<<<<<<<<<<<<<<<<<<<<<<<< ADMIN RESTYLE FOURTEEN >>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // Route Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index']);

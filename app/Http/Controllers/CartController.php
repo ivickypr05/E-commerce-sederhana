@@ -71,7 +71,7 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        //
+        // return view('/user/cart');
     }
 
     /**
