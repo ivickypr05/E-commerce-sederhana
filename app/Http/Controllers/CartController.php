@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -14,7 +16,10 @@ class CartController extends Controller
      */
     public function index()
     {
+        // $products = Product::all();
         $carts = Cart::with('product')->where('status', null)->get();
+        // $total = Cart::join('products', 'carts.product_id', '=', 'products.id')
+        //     ->sum(DB::raw('carts.qty * products.price'));
         return view('/user/cart', compact('carts'));
     }
     /**

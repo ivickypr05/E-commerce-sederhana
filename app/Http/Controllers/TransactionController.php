@@ -12,7 +12,9 @@ class TransactionController extends Controller
     public function transaction()
     {
         $carts = Cart::where('status', 'checkouted')->get();
-        return view('/user/transaction', compact('carts'));
+        $total = Cart::join('products', 'carts.product_id', '=', 'products.id')
+            ->sum(DB::raw('carts.qty * products.price'));
+        return view('/user/transaction', compact('carts', 'total'));
     }
     /**
      * Display a listing of the resource.

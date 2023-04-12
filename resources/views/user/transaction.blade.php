@@ -33,6 +33,8 @@
                         </tr>
                     @endforeach
                 </tbody>
+                <td><b>Total Spending</b></td>
+                <td><b>Rp {{ number_format($total) }},-</b></td>
             </table>
 
         </div>

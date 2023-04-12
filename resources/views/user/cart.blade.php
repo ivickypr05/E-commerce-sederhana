@@ -43,14 +43,19 @@
                         </tr>
                     @endforeach
                     <tr>
+                        {{-- <td><b>Total</b></td>
+                        <td><b>Rp {{ number_format($total) }},-</b></td> --}}
                         <td>
                             <a href="{{ url('/transactions') }}" class="btn btn-success"
                                 onclick="return confirm('Anda yakin akan Check Out ?');">
                                 <i class="fa fa-shopping-cart"></i> Check Out
                             </a>
                         </td>
+
                     </tr>
                 </tbody>
+                <tfoot>
+                </tfoot>
             </table>
 
         </div>
