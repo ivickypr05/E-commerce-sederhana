@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::post('/cart/{id}', [CartController::class, 'edit']);
     Route::put('/cart/{id}/edit', [CartController::class, 'update']);
 
+    Route::get('/transactions', [TransactionController::class, 'update']);
     // <<<<<<<<<<<<<<<<<<<<<<<<<<< ADMIN RESTYLE FOURTEEN >>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // Route Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index']);

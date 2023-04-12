@@ -35,24 +35,27 @@
                                 <td>Rp. {{ number_format($item->product->price) }},-</td>
                                 <td>Rp. {{ number_format($item->product->price * $item->qty) }},-</td>
                                 <td>
-                                    <button type="submit"  class="btn btn-warning"><i
-                                        class=" fas fa-edit"></i>Edit</button>
+                                    <button type="submit" class="btn btn-warning"><i class=" fas fa-edit"></i>Edit</button>
                                     <a href="cart/{{ $item->id }}/delete" class="btn btn-xs btn-danger"
-                                        onclick="return confirm('Are u Sure?');"><i
-                                        class="fas fa-trash"></i>Delete</a>
+                                        onclick="return confirm('Are u Sure?');"><i class="fas fa-trash"></i>Delete</a>
                                 </td>
                         </form>
                         </tr>
                     @endforeach
                     <tr>
+                        {{-- <td><b>Total</b></td>
+                        <td><b>Rp {{ number_format($total) }},-</b></td> --}}
                         <td>
-                            <a href="{{ url('konfirmasi-check-out') }}" class="btn btn-success"
+                            <a href="{{ url('/transactions') }}" class="btn btn-success"
                                 onclick="return confirm('Anda yakin akan Check Out ?');">
                                 <i class="fa fa-shopping-cart"></i> Check Out
                             </a>
                         </td>
+
                     </tr>
                 </tbody>
+                <tfoot>
+                </tfoot>
             </table>
 
         </div>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
+            $table->string('status')->nullable(true);
         });
     }
 

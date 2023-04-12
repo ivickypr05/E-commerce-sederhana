@@ -2,25 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
 {
     // User
     public function transaction()
     {
-        return view('/user/transaction');
+        $carts = Cart::where('status', 'checkouted')->get();
+        $total = Cart::join('products', 'carts.product_id', '=', 'products.id')
+            ->sum(DB::raw('carts.qty * products.price'));
+        return view('/user/transaction', compact('carts', 'total'));
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    
+
     //  admin
     public function index()
     {
-        return view('/admin/transaction/transactionlist');
+        $carts = Cart::where('status', 'checkouted')->get();
+        return view('/admin/transaction/transactionlist', compact('carts'));
     }
 
     /**
@@ -73,9 +79,21 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        //
+
+        // $carts = Cart::where('status', 'checkouted')->get();
+        $cart = Cart::where('status', null);
+        // foreach ($cart as $key) {
+        // $key = 1;
+        //     DB::table('carts')
+        //         ->where('id', $key->id)
+        //         ->update(['status' => 'checkouted']);
+        // }
+        $cart->update([
+            'status' => 'checkouted',
+        ]);
+        return redirect('/transaction');
     }
 
     /**
