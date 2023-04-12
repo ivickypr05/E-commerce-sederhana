@@ -14,7 +14,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('/user/cart');
+        $carts = Cart::with('product')->get();
+        return view('/user/cart', compact('carts'));
     }
     /**
      * Show the form for creating a new resource.
@@ -33,8 +34,23 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-{}
-    
+    {
+        $validated = $request->validate(
+            [
+                'product_id' => 'required',
+                'qty' => 'required|integer|min:1',
+            ]
+        );
+        $cek = Cart::where('product_id', $request->product_id)->first();
+        // dd($cek);
+        if ($cek) {
+            Cart::where('id', $cek->id)->update(['qty' => $cek->qty + $request->qty]);
+        } else {
+            Cart::create($validated);
+        }
+        return redirect('/cart')->with('success', 'successfully added to cart');
+    }
+
 
     /**
      * Display the specified resource.
@@ -55,7 +71,7 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        //
+        // return view('/user/cart');
     }
 
     /**
@@ -67,7 +83,11 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cart = Cart::findOrFail($id);
+        $cart->update([
+            'qty' => $request->qty,
+        ]);
+        return redirect('/cart');
     }
 
     /**
@@ -78,6 +98,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::destroy($id);
+        return redirect('/cart');
     }
 }
