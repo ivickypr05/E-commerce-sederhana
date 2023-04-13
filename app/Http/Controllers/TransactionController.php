@@ -26,7 +26,9 @@ class TransactionController extends Controller
     public function index()
     {
         $carts = Cart::where('status', 'checkouted')->get();
-        return view('/admin/transaction/transactionlist', compact('carts'));
+        $total = Cart::join('products', 'carts.product_id', '=', 'products.id')
+        ->sum(DB::raw('carts.qty * products.price'));
+        return view('/admin/transaction/transactionlist', compact('carts', 'total'));
     }
 
     /**
