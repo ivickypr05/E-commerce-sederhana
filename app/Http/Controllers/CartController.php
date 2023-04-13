@@ -16,11 +16,11 @@ class CartController extends Controller
      */
     public function index()
     {
-        // $products = Product::all();
+        $products = Product::all();
         $carts = Cart::with('product')->where('status', null)->get();
-        // $total = Cart::join('products', 'carts.product_id', '=', 'products.id')
-        //     ->sum(DB::raw('carts.qty * products.price'));
-        return view('/user/cart', compact('carts'));
+        $total = Cart::join('products', 'carts.product_id', '=', 'products.id')->where('status', null)
+            ->sum(DB::raw('carts.qty * products.price'));
+        return view('/user/cart', compact('carts', 'total', 'products'));
     }
     /**
      * Show the form for creating a new resource.
@@ -95,7 +95,7 @@ class CartController extends Controller
         $cart->update([
             'qty' => $request->qty,
         ]);
-        return redirect('/cart');
+        return redirect('/cart')->with('toast_success', 'Quantity Edited Successfully!');
     }
 
     /**
@@ -107,6 +107,6 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::destroy($id);
-        return redirect('/cart');
+        return redirect('/cart')->with('toast_success', 'Cart Deleted Successfully!');
     }
 }

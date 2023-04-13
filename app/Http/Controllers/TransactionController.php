@@ -12,7 +12,7 @@ class TransactionController extends Controller
     public function transaction()
     {
         $carts = Cart::where('status', 'checkouted')->get();
-        $total = Cart::join('products', 'carts.product_id', '=', 'products.id')
+        $total = Cart::join('products', 'carts.product_id', '=', 'products.id')->where('status', 'checkouted')
             ->sum(DB::raw('carts.qty * products.price'));
         return view('/user/transaction', compact('carts', 'total'));
     }
@@ -26,8 +26,8 @@ class TransactionController extends Controller
     public function index()
     {
         $carts = Cart::where('status', 'checkouted')->get();
-        $total = Cart::join('products', 'carts.product_id', '=', 'products.id')
-        ->sum(DB::raw('carts.qty * products.price'));
+        $total = Cart::join('products', 'carts.product_id', '=', 'products.id')->where('status', 'checkouted')
+            ->sum(DB::raw('carts.qty * products.price'));
         return view('/admin/transaction/transactionlist', compact('carts', 'total'));
     }
 
@@ -95,7 +95,7 @@ class TransactionController extends Controller
         $cart->update([
             'status' => 'checkouted',
         ]);
-        return redirect('/transaction');
+        return redirect('/transaction')->with('success', 'Thanks for your shopping');
     }
 
     /**

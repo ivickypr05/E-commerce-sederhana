@@ -1,14 +1,15 @@
 @extends('layouts.main')
 @section('title', 'ReStyle Cart | Page')
 @section('content')
-    <div class="container mt-5 px-2">
+    <div class="container mt-4 px-2">
         <div class="table-responsive mt-5">
-            <table class="table table-responsive table-borderless">
+            <table class="table table-responsive table-borderless table-striped">
 
                 <thead>
                     <tr class="bg-light">
                         {{-- <th scope="col" colspan="2"></th> --}}
                         <th>No</th>
+                        <th scope="col">Pict Product</th>
                         <th scope="col">Product</th>
                         <th scope="col">Category</th>
                         <th scope="col">Quantity</th>
@@ -24,7 +25,8 @@
                             @csrf
                             @method('PUT')
                             <tr>
-                                <td> {{ $no++ }} </td>
+                                <td><strong> {{ $no++ }} </strong></td>
+                                <td><img src="{{ asset('storage/' . $item->product->photo) }}" width="70px"> </td>
                                 {{-- <th colspan="2"><input class="form-check-input" type="checkbox"></th> --}}
                                 <td><strong>{{ $item->product->name }}</strong></td>
                                 <td>{{ $item->product->category->name }}</td>
@@ -42,22 +44,19 @@
                         </form>
                         </tr>
                     @endforeach
-                    <tr>
-                        {{-- <td><b>Total</b></td>
-                        <td><b>Rp {{ number_format($total) }},-</b></td> --}}
-                        <td>
-                            <a href="{{ url('/transactions') }}" class="btn btn-success"
-                                onclick="return confirm('Anda yakin akan Check Out ?');">
-                                <i class="fa fa-shopping-cart"></i> Check Out
-                            </a>
-                        </td>
-
-                    </tr>
                 </tbody>
-                <tfoot>
-                </tfoot>
             </table>
-
+            <div class="container-fluid bg-light border rounded py-1 mx-1">
+                <tr>
+                    <td><b> Total order price : {{ number_format($total) }},-</b></td>
+                    <td>
+                        <a href="{{ url('/transactions') }}" class="btn btn-success"
+                            onclick="return confirm('Anda yakin akan Check Out ?');">
+                            <i class="fa fa-shopping-cart"></i> Check Out
+                        </a>
+                    </td>
+                </tr>
+            </div>
         </div>
 
     </div>
