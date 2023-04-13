@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-warning p-3">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg p-1 navbar-light">
+    <div class="container">
         <li class="nav-item d-none d-lg-block">
             <a class="nav-link mx-2" href="#">
                 <img src="https://i.postimg.cc/kXByRyS2/Screenshot-2023-04-10-192951.png" height="90" />
@@ -16,28 +16,31 @@
                     <ul class="navbar-nav ">
                         <li class="nav-item ">
                             <a
-                                class="nav-link text-dark {{ request()->routeIs('home') ? 'active' : '' }}"href="{{ route('home') }}">ReStyle
+                                class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"href="{{ route('home') }}">ReStyle
                                 Product</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link text-dark{{ request()->routeIs('cart') ? 'active' : '' }}"
+                            <a class="nav-link {{ request()->routeIs('cart') ? 'active' : '' }}"
                                 href="{{ route('cart') }}">Cart</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link text-dark {{ request()->routeIs('transaction') ? 'active' : '' }}"
+                            <a class="nav-link {{ request()->routeIs('transaction') ? 'active' : '' }}"
                                 href="{{ route('transaction') }}">Transactions</a>
                         </li>
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <div class="collapse navbar-collapse">
                                     <li class=" navbar-nav nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle active text-dark" href="#"
+                                        <a class="nav-link dropdown-toggle active" href="#"
                                             id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
                                             {{ Auth::user()->name }}
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                            <li><a class="dropdown-item" href="/dashboard"><i
+                                                        class="fa-light fa-house"></i>
+                                                    Dashboard</a></li>
+                                            <li><a class="dropdown-item" href="/logout"><i
+                                                        class="fa-light fa-right-from-bracket"></i> Logout</a></li>
                                         </ul>
                                     </li>
                                 </div>

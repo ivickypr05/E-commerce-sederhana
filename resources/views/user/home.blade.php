@@ -2,7 +2,7 @@
 @section('title', 'ReStyle Home | Page')
 @section('content')
     {{-- row --}}
-    <div class="row mt-3">
+    <div class="container row mt-3">
         @foreach ($products as $items)
             {{-- col --}}
             <div class="mt-2 mb-5 col-md-3 col-6">
@@ -27,8 +27,8 @@
                             @csrf
                             <div class="row mt-3 justify-content-center">
                                 <input type="hidden" name="product_id" value="{{ $items->id }}">
-
-                                <div class="col-6">
+                                <div class="col-7">
+                                    <label for="qty" class="form-label">Input Quantity</label>
                                     <input type="number" class="form-control" required name="qty">
                                 </div>
 

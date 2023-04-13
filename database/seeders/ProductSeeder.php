@@ -101,14 +101,14 @@ class ProductSeeder extends Seeder
             ],
             [
                 'name' => 'Culotes',
-                'description' => 'Culottes are a piece of clothing that looks like a combination of a skirt and shorts.',
+                'description' => 'is a piece of clothing that looks like a combination of skirt and shorts.',
                 'price' => '150000',
                 'photo' => 'https://images.tokopedia.net/img/cache/700/VqbcmM/2022/10/17/4f215834-2070-4a46-97c4-5daed3f8704d.jpg',
                 'category_id' => 2,
             ],
             [
                 'name' => 'Cargo',
-                'description' => 'is one type of pants that has many pockets with protruding pockets, often used by men',
+                'description' => 'is one type of pants that has many protruding pockets, often used by men',
                 'price' => '60000',
                 'photo' => 'https://id-live-01.slatic.net/p/0c09b885acfac7964f50a3793cd54f69.jpg',
                 'category_id' => 1,

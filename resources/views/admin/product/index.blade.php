@@ -64,7 +64,7 @@
                                         <a href="/product/{{ $item->id }}/edit" class="btn btn-xs btn-warning"><i
                                                 class="fas fa-edit"></i></a>
                                         <a href="/product/{{ $item->id }}/delete" class="btn btn-xs btn-danger"
-                                            onclick="return confirm('Are u Sure?');"><i class="fas fa-trash"></i></a>
+                                            onclick="return confirm('Are u Sure?')"><i class="fas fa-trash"></i></a>
                                     </center>
                                 </td>
                                 </td>
