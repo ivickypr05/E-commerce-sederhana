@@ -6,7 +6,7 @@
     <i class="fa fa-chevron-circle-left"></i> Back</a>
     <div class="container mt-5 px-2">
         <div class="table-responsive mt-5">
-            <table class="table table-responsive table-borderless">
+            <table class="table table-responsive">
 
                 <thead>
                     <tr class="bg-light">

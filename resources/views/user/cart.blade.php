@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-4 px-2">
         <div class="table-responsive mt-5">
-            <table class="table table-responsive table-borderless table-striped">
+            <table class="table table-responsive table-borderless table-bordered">
 
                 <thead>
                     <tr class="bg-light">

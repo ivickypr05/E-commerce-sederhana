@@ -1,15 +1,19 @@
+<style>
+    body {
+        background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg");
+    }
+</style>
 <nav class="navbar navbar-expand-lg p-1 navbar-light">
     <div class="container">
         <li class="nav-item d-none d-lg-block">
             <a class="nav-link mx-2" href="#">
-                <img src="https://i.postimg.cc/kXByRyS2/Screenshot-2023-04-10-192951.png" height="90" />
+                <img src="https://i.postimg.cc/Qxf3xF2c/Screenshot-2023-04-10-192951-removebg-preview-2.png" height="90" />
             </a>
         </li>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-
+        </button><hr><hr>
         <div class=" collapse navbar-collapse " id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto ">
                 <div class=" collapse navbar-collapse" id="navbarNavDropdown">
