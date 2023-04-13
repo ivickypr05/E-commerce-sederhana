@@ -37,7 +37,11 @@
 </head>
 
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <nav class="sb-topnav navbar navbar-expand navbar-light "><style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg");
+        }
+    </style>
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="">ReStyle Fourteen</a>
         <!-- Sidebar Toggle-->
@@ -53,7 +57,7 @@
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i>
                     {{ Auth::user()->name }}</a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/">Home</a></li>
+                    <a class="dropdown-item" href="/">Home</a>
                     <li><a class="dropdown-item" href="/logout">Logout</a></li>
                 </ul>
             </li>
@@ -61,7 +65,7 @@
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
@@ -102,9 +106,7 @@
                 </div>
             </main>
             <div class="container">
-                <footer class="py-2 bg-light mt-auto">
-                    <div class="container-fluid ">
-                        <div class="d-flex align-items-center justify-content-between small">
+                        <div class=" align-items-center small">
                             <div class="text-center">Copyright &copy; ReStyle Fourteen 2023</div>
                         </div>
                     </div>

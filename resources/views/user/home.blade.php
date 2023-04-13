@@ -5,24 +5,23 @@
     <div class="container row mt-3">
         @foreach ($products as $items)
             {{-- col --}}
-            <div class="mt-2 mb-5 col-md-3 col-6">
+            <div class="mt-1 mb-5 col-md-3 col-20">
                 {{-- card --}}
                 <div class="card card-deck">
                     <img src="{{ asset('storage/' . $items->photo) }}" class="card-img-top" alt="...">
                     <div class="card-body">
 
-                        <h5 class="card-title">{{ $items->name }}</h5>
+                        <h5 class="card-title text-danger">{{ $items->name }}</h5>
 
                         @if ($items->category == null)
                             <h6 class="card-subtitle text-muted"><i>-Uncategory</i></h6>
                         @else
                             <h6 class="card-subtitle text-muted"><i>-{{ $items->category->name }}</i></h6>
                         @endif
-
-                        <p class="card-text">{{ $items->description }}</p>
-
-                        <h5 class="d-flex text-danger"><span class="ms-auto">Rp {{ number_format($items->price) }}</span>
-                        </h5>
+                        <hr>
+                        <h6 class="card-text md-5 small">{{ $items->description }}</h6>
+                        <h5 class="d-flex text-success"><span class="ms-auto">Rp {{ number_format($items->price) }}</span>
+                        </h5><p><br>
                         <form action="/tocart" method="post">
                             @csrf
                             <div class="row mt-3 justify-content-center">
